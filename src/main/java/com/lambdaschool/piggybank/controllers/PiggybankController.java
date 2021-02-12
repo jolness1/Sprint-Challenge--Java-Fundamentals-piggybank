@@ -43,7 +43,7 @@ public class PiggybankController
         }
 
         System.out.println(coinQuantity + "The piggy bank holds " + total);
-        return new ResponseEntity<>(null, HttpStatus.OK);
+        return new ResponseEntity<>(total, HttpStatus.OK);
 
     }
 }
