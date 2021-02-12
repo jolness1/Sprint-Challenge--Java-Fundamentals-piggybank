@@ -51,7 +51,7 @@ public class Piggybank
         this.nameplural = nameplural;
     }
 
-    public dou getValue() {
+    public double getValue() {
         return value;
     }
 
