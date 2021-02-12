@@ -12,7 +12,7 @@ public class Piggybank
     private long coinid;
     private String name;
     private String nameplural;
-    private float value;
+    private double value;
     private int quantity;
 
     public Piggybank()
@@ -51,7 +51,7 @@ public class Piggybank
         this.nameplural = nameplural;
     }
 
-    public float getValue() {
+    public dou getValue() {
         return value;
     }
 

@@ -27,7 +27,7 @@ public class PiggybankController
         List<Piggybank> myList = new ArrayList<>();
         piggyrepo.findAll().iterator().forEachRemaining(myList::add);
 
-        float total = 0;
+        double total = 0;
         String coinQuantity = "";
         for (Piggybank coin : myList)
         {
@@ -41,7 +41,8 @@ public class PiggybankController
             }
             total += coin.getValue() * coin.getQuantity();
         }
-        System.out.println("There is " + coinQuantity + "in the Piggybank. \n This is a total of " + total);
+
+        System.out.println(coinQuantity + "The piggy bank holds " + total);
         return new ResponseEntity<>(null, HttpStatus.OK);
 
     }
