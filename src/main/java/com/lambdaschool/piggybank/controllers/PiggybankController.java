@@ -20,14 +20,29 @@ public class PiggybankController
 
 
 //    http://localhost:2021/total
-    // Logic needed
-        //
 
     @GetMapping(value = "/total", produces = {"application/json"})
     public ResponseEntity<?> listAllCoins()
     {
         List<Piggybank> myList = new ArrayList<>();
         piggyrepo.findAll().iterator().forEachRemaining(myList::add);
-        return new ResponseEntity<>(myList, HttpStatus.OK);
+
+        float total = 0;
+        String coinQuantity = "";
+        for (Piggybank coin : myList)
+        {
+            if (coin.getQuantity() > 1)
+            {
+                coinQuantity += coin.getQuantity() + " " + coin.getNameplural() + "\n";
+            }
+            else
+            {
+                coinQuantity += coin.getQuantity() + " " + coin.getName() + "\n";
+            }
+            total += coin.getValue() * coin.getQuantity();
+        }
+        System.out.println("There is " + coinQuantity + "in the Piggybank. \n This is a total of " + total);
+        return new ResponseEntity<>(null, HttpStatus.OK);
+
     }
 }
